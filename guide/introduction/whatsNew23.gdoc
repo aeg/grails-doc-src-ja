@@ -18,7 +18,7 @@ Aether依存管理を使用するとGrailsではMavenビルドツールと同じ
 h4. データバインダー
 
 {hidden}Grails 2.3 includes a new data binding mechanism which is more flexible and easier to maintain than the data binder used in previous versions.  The new data binder includes numerous enhancements including:{hidden}
-Grails 2.3では、以前のバージョンよりもフレキシブルで保守性の高く簡単な新データバインダーを実装しています。
+Grails 2.3では、以前のバージョンよりもフレキシブルで保守性の高く簡単な新データバインダーを実装しています。新データバインダーは多数の機能拡張を含んでいます:
 
 {hidden}
 * Custom date formats on a per field basis using [BindingFormat|api:org.grails.databinding.BindingFormat]
@@ -42,17 +42,17 @@ Grails 2.3では、以前のバージョンよりもフレキシブルで保守�
 {hidden}The legacy data binder may be used by assigning @true@ to the @grails.databinding.useSpringBinder@ property in @grails-app/conf/Config.groovy@.  Note that the legacy binder does not support any of the new features provided by the new data binder.{hidden}
 @grails-app/conf/Config.groovy@ の @grails.databinding.useSpringBinder@ プロパティを @true@ にすることで以前のデータバインダーに変更することができます。 以前のバインダーは今回実装された新機能には対応していません。
 
+{hidden}h4. Binding Request Body To Command Objects{hidden}
 h4. リクエストボディをコマンドオブジェクトにバインド
 
 {hidden}If a request is made to a controller action which accepts a command object and the request includes a body, the body will be parsed and used to do data binding to the command object.  This simplifies use cases where a request includes a JSON or XML body (for example) that can be bound to a command object.  See the [Command Objects|guide:commandObjects] documentation for more details.{hidden}
-
 コントローラアクションがコマンドオブジェクトを受け取れる状態でリクエストがボディを含んでいる場合、ボディの内容はパースされコマンドオブジェクトにデータバインドされます。この機能は、リクエストの内容が対象のコマンドオブジェクトに対応したJSONまたXMLのボディを含んでいる処理を単純化します。
 詳細は [Command Objects|guide:commandObjects] のドキュメントを参照してください。
 
+{hidden}h4. Domain Classes As Command Objects{hidden}
 h4. ドメインクラスをコマンドオブジェクトとして使用する際の振る舞い
 
 {hidden}When a domain class is used as a command object and there is an @id@ request parameter, the framework will retrieve the instance of the domain class from the database using the @id@ request parameter.  See the [Command Objects|guide:commandObjects] documentation for more details.{hidden}
-
 ドメインクラスをコマンドオブジェクトとして使用して、リクエストパラメータに @id@ が存在した場合は、 @id@ を使用してデータベースからドメインクラスインスタンスを取り出します。 詳細は [Command Objects|guide:commandObjects] のドキュメントを参照してください。
 
 
@@ -277,6 +277,7 @@ class UrlMappings {
 <g:link controller="admin" namespace="users">Click For User Admin</g:link>
 {code}
 
+{hidden}See the [namespaced controllers|guide:namespacedControllers] docs for more information.{hidden}
 詳しくは、 [ドキュメント|guide:namespacedControllers] を参照してください。
 
 

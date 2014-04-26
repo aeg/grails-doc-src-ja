@@ -1,4 +1,4 @@
-h4. Groovy 2.2
+h4. Groovy 2.3
 
 {hidden}Grails 2.4 comes with Groovy 2.2.2 which includes many new features and enhancements.  See the [2.2.0 release notes|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19073], [2.2.1 release notes|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19572], [2.2.2 release notes|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19832]{hidden}
 Grails 2.4では、新機能や改良点を多く含んだGroovy 2.2.2がバンドルされています。 詳しくは[2.2.0リリースノート|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19073], [2.2.1リリースノート|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19572], [2.2.2リリースノート|http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10242&version=19832]を参照してください。
@@ -6,8 +6,28 @@ Grails 2.4では、新機能や改良点を多く含んだGroovy 2.2.2がバン�
 
 h4. Spring 4.0
 
-{hidden}Grails 2.4 comes with Spring 4.0.2 which includes many new features and enhancements.  See the [Spring documentation|http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/new-in-4.0.html].{hidden}
-Grails 2.4では、新機能や改良点を多く含んだSpring 4.0.2がバンドルされています。詳しくは[Springドキュメント|http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/new-in-4.0.html]を参照してください。
+{hidden}Grails 2.4 comes with Spring 4.0.3 which includes many new features and enhancements.  See the [Spring documentation|http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/new-in-4.0.html].{hidden}
+Grails 2.4では、新機能や改良点を多く含んだSpring 4.0.3がバンドルされています。詳しくは[Springドキュメント|http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/new-in-4.0.html]を参照してください。
+
+h4. Hibernate 4.3
+
+{hidden}Grails 2.4 now uses Hibernate 4.3.5 by default (Hibernate 3 is still available as an optional install).{hidden}
+Grails 2.4はデフォルトでHibernate 4.3.5を使用します(Hibernate 3はインストールすればまだ利用可能です)
+
+{hidden}h4. Standalone GORM and GSP{hidden}
+h4. スタンドアローン版GORMとGSP
+
+{hidden}GORM and GSP can now be used outside of Grails. See the following guides for more information:{hidden}
+GORMとGSPはGrailsの外でも利用可能となりました。追加情報はこれらのガイドを参照してください:
+
+{hidden}
+* [Accessing Data with GORM|https://spring.io/guides/gs/accessing-data-gorm/]
+* [Accessing MongoDB Data with GORM|https://spring.io/guides/gs/accessing-data-gorm-mongodb/]
+* TODO: Link to standalone GSP article
+{hidden}
+* [GORMによるデータアクセス|https://spring.io/guides/gs/accessing-data-gorm/]
+* [GORMによるMongoDBアクセス|https://spring.io/guides/gs/accessing-data-gorm-mongodb/]
+* TODO: スタンドアローンGSPの記事へのリンク
 
 {hidden}
 h4.  The Asset-Pipeline replaces Resources to serve static assets.
@@ -21,7 +41,7 @@ h4. 静的アセット管理はリソースプラグインからアセットパ�
 {hidden}All your assets should now live in the @grails-app/assets@ subflolders. Three folders are made for you by default:{hidden}
 全てのアセットは@grails-app/assets@階層に配置します。以下の３つのフォルダがデフォルトで作成されています:
 * javascripts
-*  stylesheets
+* stylesheets
 * images
 
 {hidden}Now, defining manifests are done directly in your javascript files, or css by using require directives!{hidden}
@@ -144,3 +164,45 @@ More notes on static compilation to be provided before the release of 2.4.0 fina
 {note}
 2.4.0の最終リリースまでに、さらなるスタティックコンパイル情報を提供する予定です
 {note}
+
+{hidden}h4. Ajax Tags Have Been Deprecated{hidden}
+h4. Ajax Tagsは廃止されました
+
+{hidden}The [formRemote|tags], [remoteField|tags], [remoteFunction|tags] and [remoteLink|tags] Ajax tags have been deprecated and will be removed from a future version of Grails.  Applications may provide their own Ajax tags and/or Javascript plugins may provide Ajax tags of their own.{hidden}
+[formRemote|tags], [remoteField|tags], [remoteFunction|tags]と[remoteLink|tags]これらAjaxタグは deprecated の取り扱いとなり、Grails将来のバージョンでは削除たぶん削除されます。アプリケーションは独自のAjaxタグもしくはJavascriptプラグイン、もしくはその両方を提供することになるだろう。
+
+{hidden}h4. Nullable Command Object Properties{hidden}
+h4. Nullableコマンドオブジェクトプロパティ
+
+{hidden}The behavior in Grails 2.3.x is such that constrained properties in command objects and other classes marked with \@Validateable are all configured with @nullable: false@ by default.  Unconstrained properties were not configured with @nullable: false@.  In Grails 2.4 all non-static unconstrained properties in command object classes and other classes marked with \@Validateable are all configured with @nullable: false@.{hidden}
+Grails 2.3.x においては、コマンドオブジェクトにおけるプロパティ制約と \@Validateable とマークされた他のクラスが全てデフォルトで @nullable: false@ と設定されていると振る舞う。制約が設定されていないプロパティは @nullable: false@ と設定されていなかった。Grails 2.4ではコマンドオブジェクトクラスや \@Validateable によりマークされた他のクラス全てのスタティックでない制約が設定されていないクラスは全て @nullable: false@ として設定される。
+
+{hidden}h4. New Command Object Data Binding Behavior{hidden}
+h4. 新しいコマンドオブジェクトデータバインダーの振る舞い
+
+{hidden}The data binding behavior for command objects have changed in Grails 2.4.  Request parameter names may now be prefixed with the name of the controller action argument name that the request parameter should be bound to.  For example, if a request is made to the @buy@ action in the controller below a request parameter named @buyer.name@ will be bound to the @name@ property of the @buyer@ argument and a request parameter named @seller.name@ will be bound to the @name@ property of the @seller@ argument.{hidden}
+コマンドオブジェクトへのデータバインダーの振る舞いがGrails 2.4 では変わった。リクエストパラメータの名前がリクエストパラメータに結び付けられるコントローラアクション引数の名前によりプレフィックスが付与されるかもしれない。
+例えば、もしリクエストがコントローラの @buy@　アクションで作られるならば、リクエストパラメータの @buyer.name@ は @buyer@ 引数の @name@ プロパティに結び付けられるだろう。そして リクエストパラメータ @seller.name@ は @seller@ 引数の @name@ プロパティに結び付けられるだろう。
+
+{code:java}
+class StoreController {
+    def buy(Person buyer, Person seller) {
+        // ...
+    }
+}
+
+class Person {
+    String name
+}
+{code}
+
+{hidden}See the [Command Objects documentation|guide:commandObjects] for more details.{hidden}
+詳細は[コマンドオブジェクト|guide:commandObjects]を参照してください。
+
+{hidden}h4. grails-debug Script Has Been Removed{hidden}
+h4. grails-debugスクリプトは削除されました。
+
+{hidden}The @grails-debug@ and @grails-debug.bat@ scripts have been removed.  To debug the build system JVM run @grails -debug <command>@ and to debug the forked JVM run @grails --debug-fork <command>@.{hidden}
+The @grails-debug@ and @grails-debug.bat@ scripts have been removed.  To debug the build system JVM run @grails -debug <command>@ and to debug the forked JVM run @grails --debug-fork <command>@.
+
+

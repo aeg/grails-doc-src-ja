@@ -20,8 +20,7 @@ Domain classes provided by a plugin will have their default database table name 
 set to @true@. For example, if the @PublishingUtilities@ plugin provides a domain class named @Book@, the default table name for that domain class will be
 @PUBLISHING_UTILITIES_BOOK@ if the @grails.gorm.table.prefix.enabled@ config property is set to @true@.
 {hidden}
-
-プラグインで提供されたドメインクラスは、 @grails.gorm.table.prefix.enabled@ が @true@ に設定されている場合、テーブル名称にプラグイン名のプリフィックスが追加されます。例として、 @PublishingUtilities@ プラグインが提供した @Book@ とい名称のドメインクラスであれば、テーブル名称が @PUBLISHING_UTILITIES_BOOK@ となります。
+プラグインで提供されたドメインクラスは、 @grails.gorm.table.prefix.enabled@ が @true@ に設定されている場合、テーブル名称にプラグイン名のプリフィックスが追加されます。例として、 @PublishingUtilities@ プラグインが提供した @Book@ とい名称のドメインクラスであれば、@grails.gorm.table.prefix.enabled@ が @true@ に設定されていた場合、ドメインクラスのデフォルトのテーブル名称が @PUBLISHING_UTILITIES_BOOK@ となります。
 
 {hidden}URL Mappings may now include a @plugin@ attribute to indicate that the controller referenced in the mapping is provided by a particular plugin.{hidden}
 URLマッピングには、プラグインが提供したコントローラを参照させるために、 @plugin@ 属性を使用します。
@@ -79,7 +78,7 @@ Grails 2.2では、開発モードにおいて、Tomcatコンテナを実行す�
 {hidden}
 * Grailsビルドシステムから抜けられるため、メモリーの消耗を減らします。
 * ランタイムクラスパスから、独立したビルドクラスパス。
-* 依存衝突無く並行して、別のGrails/Springアプリケーションのデプロイを可能にします。
+* 依存衝突無く並行動作し、別のGrails/Springアプリケーションのデプロイを可能にします。
 
 {hidden}
 See the [documentation|guide:forkedMode] on using forked mode for more information.
